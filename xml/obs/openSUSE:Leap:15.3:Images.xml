@@ -3,6 +3,12 @@
     dist_path="images"
     distri="opensuse" 
     archs="aarch64 x86_64">
+    <flavor name="JeOS-for-AArch64" folder="JeOS:JeOS-efi.aarch64">
+        <hdd filemask=".*ARM-JeOS-efi.*\.raw\.xz"/>
+    </flavor>
+    <flavor name="JeOS-for-RPi" folder="JeOS:JeOS-raspberrypi3.aarch64">
+        <hdd filemask=".*raspberrypi3.*\.raw.xz$"/>
+    </flavor>
     <!-- Actually only for x86_64, but adding archs="x86_64" here overwrites the default... -->
     <flavor name="JeOS-for-kvm-and-xen" folder="*/kiwi-templates-JeOS:kvm-and-xen">
         <!-- Due to there being multiple archs, it omits "head -n1". So don't match .sha256(.asc). -->
@@ -12,8 +18,7 @@
         <assets>
             <!-- Matches both -libvirt- and -libvirt_aarch64- -->
             <libvirt folder="*/*vagrant*libvirt*" filemask="libvirt.box"/>
-<!-- Build broken ATM
-            <virtualbox folder="*/*vagrant*virtualbox*" filemask="virtualbox.box"/>-->
+            <virtualbox folder="*/*vagrant*virtualbox*" filemask="virtualbox.box"/>
         </assets>
     </flavor>
     <flavor name="GNOME-Live" folder="*/livecd-leap-gnome" iso="1"/>
